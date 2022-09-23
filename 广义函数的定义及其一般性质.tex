@@ -1,0 +1,29 @@
+\chapter{广义函数的定义及其一般性质}
+
+\section{测度}
+
+\def\PRNotes{\href{https://github.com/GasinAn/PRNotes}{概率论笔记}}
+
+阅读\PRNotes{}将有助于读者理解本章的内容.
+
+任意集合上的测度是其子集到正实数的映射, 若把正实数替换为复数, 则称为复值测度\footnote{测度定义中的极限本来明确, 但如果映射的像为复数, 则极限必须明确为绝对收敛的极限.}.
+
+设$\mu$为$\R^n$上一复值测度, 若$\varphi$为定义在$\R^n$上且在一个有界闭集外为$0$的复值函数, 则
+\begin{equation}
+    \mu(\varphi):=\int_{\R^n}\varphi\,\d\mu,
+\end{equation}
+现在我们也把函数$\mu(\cdot)$称为测度.
+
+定义在$\R^n$上的复值函数$\varphi)$的支集为$\{\vec{x}\in\R^n|\varphi)(\vec{x})\ne0\}$的闭包, 此集合等于$\{\vec{x}\in\R^n\,|\,\forall\,\vec{x}\,\text{的邻域}\,O,\forall\, \vec{y}\in O,\varphi(\vec{y})\ne0\}$, 定义在$\R^n$上的复值测度$\mu$的支集则为$\{\vec{x}\in\R^n\,|\,\forall\,\vec{x}\,\text{的邻域}\,O,\mu(O)\ne0\}$\footnote{定义是否真如此尚有疑问.}.
+
+对任意在$\R^n$上所有有界闭集上可积的函数$f$, 可定义
+\begin{equation}
+    \mu_f(A)=\int_A f\,\d V,
+\end{equation}
+则
+\begin{equation}
+    \mu_f(\varphi)=\int_{\R^n} f\varphi\,\d V,
+\end{equation}
+于是有对应关系$f\leftrightarrow \mu_f$, 可干脆直接记成$\mu_f=f$, $\mu_f$和$f$的支集也是相等的. 测度是$\R^n$上所有有界闭集上可积的函数的推广.
+
+记$\mu_\delta:\varphi\mapsto\varphi(\vec{0})$, 则$\mu_\delta$就是$\delta$函数, 通常所写的$\int_{\R^n} \delta\varphi\,\d V=\mu_\delta(\varphi)$.

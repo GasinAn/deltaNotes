@@ -1,0 +1,32 @@
+% 编译方式: xelatex*2
+\documentclass{ctexbook}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{syntonly}
+%\syntaxonly
+\pagestyle{plain}
+\hypersetup{
+    colorlinks,
+    linkcolor=blue,
+    filecolor=pink,
+    urlcolor=cyan,
+    citecolor=red,
+}
+\def\b{\boldsymbol}
+\def\d{\mathrm{d}}
+\def\R{\mathbb{R}}
+\theoremstyle{definition}
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{theorem}{定理}[chapter]
+\title{广义函数论笔记}
+\author{GasinAn}
+\begin{document}
+    \maketitle
+    \include{copyright.tex}
+    \tableofcontents
+    \include{广义函数的定义及其一般性质.tex}
+\end{document}
