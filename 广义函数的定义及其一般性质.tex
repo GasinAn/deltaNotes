@@ -12,9 +12,11 @@
 \begin{equation}
     \mu(\varphi):=\int_{\R^n}\varphi\,\d\mu,
 \end{equation}
-现在我们也把函数$\mu(\cdot)$称为测度.
+现在我们也把函数$\mu(\cdot)$称为测度, $\mu(\cdot)$把函数映射成数, 所以是泛函.
 
-定义在$\R^n$上的复值函数$\varphi)$的支集为$\{\vec{x}\in\R^n|\varphi)(\vec{x})\ne0\}$的闭包, 此集合等于$\{\vec{x}\in\R^n\,|\,\forall\,\vec{x}\,\text{的邻域}\,O,\forall\, \vec{y}\in O,\varphi(\vec{y})\ne0\}$, 定义在$\R^n$上的复值测度$\mu$的支集则为$\{\vec{x}\in\R^n\,|\,\forall\,\vec{x}\,\text{的邻域}\,O,\mu(O)\ne0\}$\footnote{定义是否真如此尚有疑问.}.
+定义在$\R^n$上的复值函数$\varphi$的支集为$\{\vec{x}\in\R^n\,|\,\varphi(\vec{x})\ne0\}$的闭包, 此集合等于$\{\vec{x}\in\R^n\,|\,\forall\,\vec{x}\,\text{的邻域}\,N,\varphi\,\text{不在}\,O\text{内为}\,0\}$, 也等于$\varphi$在其中为$0$的所有开集的并的余集.
+
+设$\mu$为$\R^n$上一复值测度, $O\in\R^n$为开集, 若任意定义在$\R^n$上且在一个有界闭集外为$0$的复值连续函数$\varphi$, $\varphi$的支集含于$O$ $\Rightarrow$ $\mu(\varphi)=0$, 则称$\mu$在$O$内为$0$. 复值测度$\mu$的支集为$\{\vec{x}\in\R^n\,|\,\forall\vec{x}\,\text{的邻域}\,N,\mu\,\text{不在}\,O\text{内为}\,0\}$, 此集合也等于$\mu$在其中为$0$的所有开集的并的余集.
 
 对任意在$\R^n$上所有有界闭集上可积的函数$f$, 可定义
 \begin{equation}
@@ -24,6 +26,18 @@
 \begin{equation}
     \mu_f(\varphi)=\int_{\R^n} f\varphi\,\d V,
 \end{equation}
-于是有对应关系$f\leftrightarrow \mu_f$, 可干脆直接记成$\mu_f=f$, $\mu_f$和$f$的支集也是相等的. 测度是$\R^n$上所有有界闭集上可积的函数的推广.
+于是有对应关系$f\leftrightarrow \mu_f$, 可干脆直接记成$\mu_f=f$, $\mu_f$和$f$的支集也是相等的, 所以测度是在$\R^n$上所有有界闭集上可积的函数的推广.
 
 记$\mu_\delta:\varphi\mapsto\varphi(\vec{0})$, 则$\mu_\delta$就是$\delta$函数, 通常所写的$\int_{\R^n} \delta\varphi\,\d V=\mu_\delta(\varphi)$.
+
+\section{广义函数}
+
+不仅$\delta'$不能定义成测度, 一些常见函数(如$f(x)=1/x$)也无法对应于测度, 所以我们必须彻底放弃测度而把广义函数定义成泛函.
+
+基本空间$K:=\{\varphi:\R^n\to\mathbb{C}\,|\,\varphi\,\text{为}\,\text{C}^\infty,\varphi\,\text{的支集有界}\}$, 连续\footnote{``连续''的含义此处略.}线性泛函$K\to\mathbb{C}$称为$\R^n$上的广义函数. 测度显然有对应的广义函数.
+
+设$\eta$为$\R^n$上一广义函数, $O\in\R^n$为开集, 若任意$\varphi\in K$, $\varphi$的支集含于$O$ $\Rightarrow$ $\eta(\varphi)=0$, 则称$\mu$在$O$内为$0$. 广义函数$\eta$的支集为$\eta$在其中为$0$的所有开集的并的余集.
+
+若$V$为矢量空间\footnote{此空间还需一些附加性质, 此处略.}, 则连续线性泛函$K\to V$称为矢量值广义函数.
+
+若将基本空间定义中的$\R^n$换成$n$维流形, 则测度仍有唯一对应的广义函数, 但函数不一定有唯一对应的广义函数, 除非体元确定.
