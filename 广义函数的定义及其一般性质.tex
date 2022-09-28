@@ -35,8 +35,28 @@
 不仅$\delta'$不能定义成测度, 一些常见函数(如$f(x)=1/x$)也无法对应于测度, 所以我们必须彻底放弃测度而把广义函数定义成泛函.
 
 基本空间$K:=\{\varphi:\R^n\to\mathbb{C}\,|\,\varphi\,\text{为}\,\text{C}^\infty,\varphi\,\text{的支集有界}\}$, 连续\footnote{``连续''的含义此处略.}线性泛函$K\to\mathbb{C}$称为$\R^n$上的广义函数. 测度显然有对应的广义函数.
+\begin{theorem}
+    对$\R$, $K\ne\{\varphi\,|\,\forall x\in\R,\varphi(x)=0\}$.
+\end{theorem}
+\begin{proof}
+    \begin{equation}
+        \xi (x):=\begin{cases}
+            e^{\frac{1}{\left\lvert x\right\rvert^2-1}}&\left\lvert x\right\rvert\leqslant1,\\
+            0&\left\lvert x\right\rvert>1,
+        \end{cases}
+    \end{equation}
+    $\xi\in K$.
+\end{proof}
 
 设$\eta$为$\R^n$上一广义函数, $O\in\R^n$为开集, 若任意$\varphi\in K$, $\varphi$的支集含于$O$ $\Rightarrow$ $\eta(\varphi)=0$, 则称$\mu$在$O$内为$0$. 广义函数$\eta$的支集为$\eta$在其中为$0$的所有开集的并的余集.
+
+现在$\mu_\delta(\varphi)=\int_{\R^n} \delta\varphi\,\d V$只有$\varphi\in K$时有意义, 但我们要求$\varphi$的支集不一定有界. 若$\eta$为支集有界的广义函数, $f$为$\text{C}^\infty$, $\alpha\in K$且在$\eta$的支集的一有界闭邻域上为$1$, 则$\eta(\alpha f)$有定义且不依赖于$\alpha$, 故$\eta(\varphi):=\eta(\alpha\varphi)$.
+\begin{theorem}
+    $\mu_\delta(f)=f(\vec{0})$.
+\end{theorem}
+\begin{proof}
+    任意不含$\vec{0}$的开集$O$, 任意$\varphi\in K$, $\varphi$的支集含于$O$ $\Rightarrow$ $O$的余集含于$\varphi$的支集的余集 $\Rightarrow$ $O$的余集含于$\varphi$在其中为$0$的所有开集的并 $\Rightarrow$ 在$O$的余集上$\varphi$为$0$ $\Rightarrow$ $\varphi(\vec{0})=0$ $\Rightarrow$ $\mu_\delta(\varphi)=0$. 任意含$\vec{0}$的开集$O$, 存在$\varphi\in K$, $\varphi(\vec{0})\ne0$ $\Rightarrow$ $\mu_\delta(\varphi)\ne0$ $\Rightarrow$ ($\varphi$的支集含于$O$ $\nRightarrow $ $\mu_\delta(\varphi)=0$). 所以$\mu_\delta$的支集为所有不含$\vec{0}$的开集的并的余集, 即$\{\vec{0}\}$, 因此$\mu_\delta$的支集有界. 设$\alpha\in K$在包含$\{\vec{0}\}$的一有界闭集上为$1$, 则$\mu_\delta(f)=\mu_\delta(\alpha f)=\alpha(\vec{0})f(\vec{0})=f(\vec{0})$.
+\end{proof}
 
 若$V$为矢量空间\footnote{此空间还需一些附加性质, 此处略.}, 则连续线性泛函$K\to V$称为矢量值广义函数.
 
