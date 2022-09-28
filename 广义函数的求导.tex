@@ -1,0 +1,73 @@
+\chapter{广义函数的求导}
+
+任意在$\R^n$上所有有界闭集上可积的函数$f$, 任意$\varphi\in K$,
+\begin{equation}
+    \int\frac{\p f}{\p x_k}\varphi\,\d x_k=-\int f\frac{\p \varphi}{\p x_k}\,\d x_k, 
+\end{equation}
+则
+\begin{equation}
+    \eta_{\frac{\p f}{\p x_k}}(\varphi)=-\eta_f(\frac{\p \varphi}{\p x_k}), 
+\end{equation}
+所以任意广义函数$\eta$的偏导数
+\begin{equation}
+    \frac{\p \eta}{\p x_k}(\varphi):=-\eta(\frac{\p \varphi}{\p x_k}).
+\end{equation}
+\begin{theorem}
+    \begin{equation}
+        H(x)=\begin{cases}
+            0&x<0,\\
+            1&x>0
+        \end{cases}
+    \end{equation}
+    为Heaviside函数\footnote{$H(x)$在$0$处的定义无关紧要, 因为$\{0\}$为零测集, 以下类似情况皆如此.}, 其导函数为$\delta(x)$.
+\end{theorem}
+\begin{proof}
+    $\eta_{\frac{\d H}{\d x}}(\varphi)=-\eta_H(\frac{d \varphi}{d x})=-\int_0^\infty\frac{d \varphi}{d x}\,\d x=\varphi(0)-\varphi(\infty)$, $\eta_{\delta}(\varphi)=\varphi(0)$, $\varphi(\infty)=0$.
+\end{proof}
+\begin{theorem}
+    \begin{equation}
+        \int \delta'(x)f(x)\,\d x=-f'(0).
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    只需证$\delta'(x)$的支集有界, 这是平易的.
+\end{proof}
+\begin{theorem} 在$\R^3$中,
+    \begin{equation}
+        \vec{\nabla}^2\frac{1}{\left\lvert \vec{x}\right\rvert }=-\vec{\nabla}\cdot\frac{\vec{x}}{\left\lvert \vec{x}\right\rvert^3 }=-4\pi\delta(\vec{x}).
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    \begin{align}
+        \int\left[\vec{\nabla}^2\frac{1}{\left\lvert \vec{x}\right\rvert }\right]\varphi(\vec{x})\,\d V
+        &=\sum_{i}\int\frac{\p }{\p x_i}\left[\vec{\nabla}\frac{1}{\left\lvert \vec{x}\right\rvert }\cdot\vec{e}_i\right]\varphi(\vec{x})\,\d V\\
+        &:=-\sum_{i}\int\left[\vec{\nabla}\frac{1}{\left\lvert \vec{x}\right\rvert }\cdot\vec{e}_i\right]\frac{\p }{\p x_i}\varphi(\vec{x})\,\d V\\
+        &=-\sum_{i}\int\frac{\p }{\p x_i}\left[\frac{1}{\left\lvert \vec{x}\right\rvert }\right]\frac{\p }{\p x_i}\varphi(\vec{x})\,\d V\\
+        &:=\sum_{i}\int\left[\frac{1}{\left\lvert \vec{x}\right\rvert }\right]\frac{\p^2 }{\p x_i^2}\varphi(\vec{x})\,\d V\\
+        &=\int\left[\frac{1}{\left\lvert \vec{x}\right\rvert }\right]\vec{\nabla}^2\varphi(\vec{x})\,\d V\\
+        &:=\lim_{\epsilon\to 0}\int_{\left\lvert \vec{x}\right\rvert \geqslant\epsilon}\frac{1}{\left\lvert \vec{x}\right\rvert }\vec{\nabla}^2\varphi(\vec{x})\,\d V,
+    \end{align}
+    由第二Green公式(注意$\varphi$和$1/\left\lvert \vec{x}\right\rvert$在无穷远处为$0$),
+    \begin{IEEEeqnarray}{rCl}
+        \lim_{\epsilon\to 0}\int_{\left\lvert \vec{x}\right\rvert \geqslant\epsilon}\frac{1}{\left\lvert \vec{x}\right\rvert }\vec{\nabla}^2\varphi(\vec{x})\,\d V
+        &=&\lim_{\epsilon\to 0}\int_{\left\lvert \vec{x}\right\rvert =\epsilon}\frac{1}{\left\lvert \vec{x}\right\rvert }\frac{\p}{\p\vec{n}}\varphi(\vec{x})\,\d S\\
+        &&  \negmedspace{}-\lim_{\epsilon\to 0}\int_{\left\lvert \vec{x}\right\rvert =\epsilon}\varphi(\vec{x})\frac{\p}{\p\vec{n}}\frac{1}{\left\lvert \vec{x}\right\rvert }\,\d S\\
+        &&  \negmedspace{}+\lim_{\epsilon\to 0}\int_{\left\lvert \vec{x}\right\rvert \geqslant\epsilon}\varphi(\vec{x})\vec{\nabla}^2\frac{1}{\left\lvert \vec{x}\right\rvert }\,\d V,
+    \end{IEEEeqnarray}
+    因为在$\{\vec{x}\in\R^3\,|\,\vec{x}\ne\vec{0}\}$内$\vec{\nabla}^2(1/{\left\lvert \vec{x}\right\rvert })=0$, 所以
+    \begin{equation}
+        \lim_{\epsilon\to 0}\int_{\left\lvert \vec{x}\right\rvert \geqslant\epsilon}\varphi(\vec{x})\vec{\nabla}^2\frac{1}{\left\lvert \vec{x}\right\rvert }\,\d V=0,
+    \end{equation}
+    取$\R^3$一有界闭子集$C$, $\varphi$为$\text{C}^\infty$, 则$\p\varphi/\p\vec{n}$在其中有最大值$M$, 所以
+    \begin{align}
+        \lim_{\epsilon\to 0}\int_{\left\lvert \vec{x}\right\rvert =\epsilon}\frac{1}{\left\lvert \vec{x}\right\rvert }\frac{\p}{\p\vec{n}}\varphi(\vec{x})\,\d S
+        &\leqslant\lim_{\epsilon\to 0}\int_{\left\lvert \vec{x}\right\rvert =\epsilon}\frac{1}{\left\lvert \vec{x}\right\rvert}M\,\d S\\
+        &=\lim_{\epsilon\to 0}4\pi M\epsilon=0,
+    \end{align}
+    而(注意$\vec{n}$指向原点)
+    \begin{align}
+        -\lim_{\epsilon\to 0}\int_{\left\lvert \vec{x}\right\rvert =\epsilon}\varphi(\vec{x})\frac{\p}{\p\vec{n}}\frac{1}{\left\lvert \vec{x}\right\rvert }\,\d S
+        &=-\lim_{\epsilon\to 0}\int_{\left\lvert \vec{x}\right\rvert =\epsilon}\varphi(\vec{x})\frac{1}{\left\lvert \vec{x}\right\rvert^2 }\,\d S\\
+        &=-\lim_{\epsilon\to 0}4\pi\varphi(\vec{x})=-4\pi\varphi(\vec{0}).
+    \end{align}
+\end{proof}
